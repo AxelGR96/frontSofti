@@ -1,14 +1,20 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+//import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouter from "vue-router";
 import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
+const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+  },
+  {
+    path: "gestion-propinas",
+    name: "propinas",
+    component: () => import("../components/propinas.vue")
   },
   {
     path: '/about',
@@ -18,6 +24,7 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
+
 ]
 
 const router = new VueRouter({
